@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<list>
+		<video id="video1" content="content">
+			<skippable after="40">true</skippable>
+			<media href="http://localhost:81/sl_mediaplayerWeb/Files/VideoOutput/3.wmv"/>
+			<thumb href="http://localhost:81/sl_mediaplayerWeb/Files/VideoOutput/1_1.jpg"/>
+
+
+			<!-- option -->
+			<meta>
+				<title>Title Video</title>
+				<description>Description of MediaItem</description>
+				<publishdate>2007-12-24 12:34:56</publishdate>
+			</meta>
+
+			<!-- option -->
+			<markers>
+				<marker name="i1" start="20" end="30">
+					Dies ist ein Markertext.
+				</marker>
+				<marker name="i2" start="25" end="35">
+					Dies ist ein 2. Markertext.
+				</marker>
+			</markers>
+
+			<!-- option -->
+			<tracking>
+				<started jsfunction="jsStartetFunction" value="video1" />
+				<stopped jsfunction="jsStoppedFunction" value="video1" />
+				<ended url="" />
+				<skipped url="" />
+			</tracking>
+		</video>
+		<audio id="audio1" content="content">
+			<skippable>true</skippable>
+			<media href="http://localhost:81/sl_mediaplayerWeb/Files/SoundOutput/4.wma"/>
+			<thumb href="http://localhost:81/sl_mediaplayerWeb/Files/VideoOutput/1_3.jpg"/>
+			<picture href="http://localhost:81/sl_mediaplayerWeb/Files/PictureImport/2_Dodge_beide.jpg"/>
+
+			<!-- option -->
+			<slideshow>
+				<picture time="20" href="http://localhost:81/sl_mediaplayerWeb/Files/PictureImport/2_Dodge_beide.jpg"/>
+				<picture time="40" href="http://localhost:81/sl_mediaplayerWeb/Files/PictureImport/2_Dodge_beide.jpg"/>
+				<picture time="60" href="http://localhost:81/sl_mediaplayerWeb/Files/PictureImport/2_Dodge_beide.jpg"/>
+				<picture time="80" href="http://localhost:81/sl_mediaplayerWeb/Files/PictureImport/2_Dodge_beide.jpg"/>
+			</slideshow>
+
+			<!-- option -->
+			<meta>
+				<title>Title Audio</title>
+				<description>Description of MediaItem</description>
+				<publishdate>2007-12-24 12:34:56</publishdate>
+			</meta>
+
+			<!-- option -->
+			<markers>
+				<marker name="i1" start="20" end="30">
+					Dies ist ein Markertext.
+				</marker>
+				<marker name="i2" start="25" end="35">
+					Dies ist ein 2. Markertext.
+				</marker>
+			</markers>
+		</audio>
+		<picture id="picture1" type="picture" content="content">
+			<skippable>true</skippable>
+			<picture href="http://localhost:81/sl_mediaplayerWeb/Files/PictureImport/2_Dodge_beide.jpg"/>
+			<thumb href="http://localhost:81/sl_mediaplayerWeb/Files/PictureOutput/1_2_mini.jpg"/>
+			<duration>0</duration>
+
+			<!-- option -->
+			<meta>
+				<title>Title Picture</title>
+				<description>Description of MediaItem</description>
+				<publishdate>2007-12-24 12:34:56</publishdate>
+			</meta>
+
+			<!-- option -->
+			<markers>
+				<marker name="i1" start="20" end="30">
+					Dies ist ein Markertext.
+				</marker>
+				<marker name="i2" start="25" end="35">
+					Dies ist ein 2. Markertext.
+				</marker>
+			</markers>
+		</picture>
+</list>

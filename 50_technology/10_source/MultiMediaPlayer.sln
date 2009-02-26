@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiMediaPlayer", "MultiMediaPlayer\MultiMediaPlayer.csproj", "{969F7AD1-58D5-4ED4-A7D0-E2A48B46548B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiMediaPlayer.Web", "MultiMediaPlayer.Web\MultiMediaPlayer.Web.csproj", "{B88DD472-F05A-4E4C-9663-1D70DA3F2825}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{969F7AD1-58D5-4ED4-A7D0-E2A48B46548B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{969F7AD1-58D5-4ED4-A7D0-E2A48B46548B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{969F7AD1-58D5-4ED4-A7D0-E2A48B46548B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{969F7AD1-58D5-4ED4-A7D0-E2A48B46548B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88DD472-F05A-4E4C-9663-1D70DA3F2825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88DD472-F05A-4E4C-9663-1D70DA3F2825}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88DD472-F05A-4E4C-9663-1D70DA3F2825}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88DD472-F05A-4E4C-9663-1D70DA3F2825}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
