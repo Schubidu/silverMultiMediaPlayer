@@ -20,18 +20,26 @@ namespace MultiMediaPlayer
 			this.Startup += this.Application_Startup;
 			this.Exit += this.Application_Exit;
 			this.UnhandledException += this.Application_UnhandledException;
-			MediaData.MediaCollection mCollect = new MediaData.MediaCollection();
-			mCollect.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(mCollect_PropertyChanged);
+
 			InitializeComponent();
 		}
 
-		void mCollect_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		void AppKey_KeyValidationSuccessed(object sender, ApplikationKeyEventArgs e)
+		{
+			if (e.IsValideKey) return;
+		}
+
+		void AppKey_KeyValidationFailed(object sender, ApplikationKeyEventArgs e)
 		{
 			throw new NotImplementedException();
 		}
 
 		private void Application_Startup(object sender, StartupEventArgs e)
 		{
+			ApplikationKey AppKey = new ApplikationKey();
+			AppKey.KeyValidationFailed += new ApplikationKeyEventHandler(AppKey_KeyValidationFailed);
+			AppKey.KeyValidationSuccessed += new ApplikationKeyEventHandler(AppKey_KeyValidationSuccessed);
+			AppKey.validateKey(Utils.Initparams.GetInitParameter("Appkey"));
 			//this.RootVisual = new Pages.MultiPlayer();
 		}
 

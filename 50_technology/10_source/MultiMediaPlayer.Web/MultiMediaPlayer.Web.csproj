@@ -62,6 +62,7 @@
     <Content Include="Silverlight.js" />
     <Content Include="Web.config" />
     <Content Include="media.xml" />
+    <Content Include="applicationkey.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">

@@ -81,7 +81,8 @@ namespace MultiMediaPlayer.MediaData
 		/// Fill MediaItem with Values
 		/// </summary>
 		/// <param name="element">Element from XML</param>
-		protected void FillMediaItem(System.Xml.Linq.XElement element) {
+		protected internal void FillMediaItem(System.Xml.Linq.XElement element)
+		{
 			Content = GetContentType((string)element.Attribute("content"));
 			IsSkippable = GetIsSkippable((string)element.Element("skippable"));
 			if (IsSkippable)
@@ -155,7 +156,7 @@ namespace MultiMediaPlayer.MediaData
 		/// </summary>
 		/// <param name="duration">Duration as string</param>
 		/// <returns>TimeSpan</returns>
-		private TimeSpan GetDuration(string duration)
+		protected TimeSpan GetDuration(string duration)
 		{
 			if (duration == String.Empty)
 			{
@@ -172,7 +173,7 @@ namespace MultiMediaPlayer.MediaData
 		/// <param name="xElement">Element from XML</param>
 		/// <param name="p">Attributename</param>
 		/// <returns>TimeSpan</returns>
-		private TimeSpan GetDuration(XElement xElement, string p)
+		protected TimeSpan GetDuration(XElement xElement, string p)
 		{
 			if (xElement != null && xElement.Attribute(p) != null)
 				return GetDuration((string)xElement.Attribute(p));

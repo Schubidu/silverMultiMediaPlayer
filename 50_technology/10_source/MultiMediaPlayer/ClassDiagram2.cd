@@ -3,7 +3,7 @@
   <Class Name="MultiMediaPlayer.App" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAgAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAABAAEAAAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -72,10 +72,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MultiMediaPlayer.ApplikationKey">
-    <Position X="6" Y="4.25" Width="1.5" />
+    <Position X="5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
-      <FileName>MediaData\ApplikationKey.cs</FileName>
+      <HashCode>AABAAAAAAAIAAAAAACAAAAAAAAAAAkAAEAAAAAAAAAA=</HashCode>
+      <FileName>ApplikationKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.ApplikationKeyEventArgs">
+    <Position X="7.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>ApplikationKeyEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="MultiMediaPlayer.MediaData.IMediaItem" Collapsed="true">
@@ -104,6 +111,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MediaData\TrackingItem.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MultiMediaPlayer.ApplikationKeyEventHandler">
+    <Position X="6.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ApplikationKey.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Font Name="Segoe UI" Size="9" />
