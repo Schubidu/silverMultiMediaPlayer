@@ -3,7 +3,7 @@
   <Class Name="MultiMediaPlayer.App" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAABAAEAAAA=</HashCode>
+      <HashCode>AAAgAABAAEAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -74,7 +74,7 @@
   <Class Name="MultiMediaPlayer.ApplikationKey">
     <Position X="5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAIAAAAAACAAAAAAAAAAAkAAEAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAAAAAAIAAAAgACAAAAAAAAAAAkAAEAAAAAAAAAA=</HashCode>
       <FileName>ApplikationKey.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -107,14 +107,14 @@
     </TypeIdentifier>
   </Enum>
   <Delegate Name="MultiMediaPlayer.MediaData.TrackingItemEventHandler">
-    <Position X="8.5" Y="5" Width="1.5" />
+    <Position X="9.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MediaData\TrackingItem.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="MultiMediaPlayer.ApplikationKeyEventHandler">
-    <Position X="6.75" Y="6.25" Width="1.5" />
+    <Position X="9.25" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ApplikationKey.cs</FileName>
