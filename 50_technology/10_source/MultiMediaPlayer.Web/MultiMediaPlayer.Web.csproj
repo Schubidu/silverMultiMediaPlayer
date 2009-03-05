@@ -11,7 +11,7 @@
     <RootNamespace>MultiMediaPlayer.Web</RootNamespace>
     <AssemblyName>MultiMediaPlayer.Web</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <SilverlightApplicationList>{969F7AD1-58D5-4ED4-A7D0-E2A48B46548B}|..\MultiMediaPlayer\MultiMediaPlayer.csproj|ClientBin|False</SilverlightApplicationList>
+    <SilverlightApplicationList>{C960EE31-8939-46A5-AA67-0291AB0BA39C}|..\MultiMediaPlayer.App\MultiMediaPlayer.App.csproj|ClientBin|False</SilverlightApplicationList>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,8 +57,8 @@
   <ItemGroup>
     <Content Include="ClientBin\MultiMediaPlayer.xap" />
     <Content Include="Default.aspx" />
-    <Content Include="MultiMediaPlayerTestPage.aspx" />
-    <Content Include="MultiMediaPlayerTestPage.html" />
+    <Content Include="MultiMediaPlayer.AppTestPage.aspx" />
+    <Content Include="MultiMediaPlayer.AppTestPage.html" />
     <Content Include="Silverlight.js" />
     <Content Include="Web.config" />
     <Content Include="media.xml" />

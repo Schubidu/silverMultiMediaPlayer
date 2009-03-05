@@ -7,13 +7,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" style="height:100%;">
 <head runat="server">
-    <title>MultiMediaPlayer</title>
+    <title>MultiMediaPlayer.App</title>
 </head>
 <body style="height:100%;margin:0;">
     <form id="form1" runat="server" style="height:100%;">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div  style="height:100%;">
-            <asp:Silverlight ID="Xaml1" runat="server" Source="~/ClientBin/MultiMediaPlayer.xap" MinimumVersion="2.0.31005.0" Width="100%" Height="100%" />
+            <asp:Silverlight ID="Xaml1" runat="server" Source="~/ClientBin/MultiMediaPlayer.App.xap" MinimumVersion="2.0.31005.0" Width="100%" Height="100%" />
         </div>
     </form>
 </body>
