@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MultiMediaPlayer.MediaData
+namespace MultiMediaPlayerApp.MediaData
 {
 	interface IMediaItem
 	{

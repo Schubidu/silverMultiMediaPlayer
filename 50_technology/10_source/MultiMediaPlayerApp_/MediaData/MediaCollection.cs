@@ -7,7 +7,7 @@ using System.Windows.Browser;
 using System.Xml.Linq;
 using System.ComponentModel;
 
-namespace MultiMediaPlayer.MediaData
+namespace MultiMediaPlayerApp.MediaData
 {
 	public class MediaCollection : INotifyPropertyChanged
 	{

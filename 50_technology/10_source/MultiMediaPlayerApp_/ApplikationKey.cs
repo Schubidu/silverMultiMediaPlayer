@@ -5,7 +5,7 @@ using System.Text;
 using System.Net;
 using System.Xml.Linq;
 
-namespace MultiMediaPlayer
+namespace MultiMediaPlayerApp
 {
 	public class ApplikationKey
 	{

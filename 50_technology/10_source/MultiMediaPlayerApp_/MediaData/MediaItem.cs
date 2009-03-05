@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace MultiMediaPlayer.MediaData
+namespace MultiMediaPlayerApp.MediaData
 {
 	/// <summary>
 	/// represents a MediaItem
