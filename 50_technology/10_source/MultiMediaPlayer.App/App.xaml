@@ -1,8 +1,63 @@
 ﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              x:Class="MultiMediaPlayer.App.App"
+             xmlns:MultiMediaPlayer="clr-namespace:MultiMediaPlayer;assembly=MultiMediaPlayer" xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
              >
     <Application.Resources>
+        
+    	<Style x:Key="SliderGaugeStyle1" TargetType="MultiMediaPlayer:SliderGauge">
+    		<Setter Property="FontSize" Value="15"/>
+    		<Setter Property="Orientation" Value="Horizontal"/>
+    		<Setter Property="FontColor" Value="White"/>
+    		<Setter Property="Foreground">
+    			<Setter.Value>
+    				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+    					<GradientStop Color="#FFB9FF87" Offset="0"/>
+    					<GradientStop Color="#FF3BA521" Offset="1"/>
+    				</LinearGradientBrush>
+    			</Setter.Value>
+    		</Setter>
+    		<Setter Property="Background">
+    			<Setter.Value>
+    				<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+    					<GradientStop Color="#FFC0C0C0" Offset="0"/>
+    					<GradientStop Color="#FF303030" Offset="1"/>
+    				</LinearGradientBrush>
+    			</Setter.Value>
+    		</Setter>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="MultiMediaPlayer:SliderGauge">
+    					<Grid x:Name="RootElement">
+    						<vsm:VisualStateManager.VisualStateGroups>
+    							<vsm:VisualStateGroup x:Name="CommonStates">
+    								<vsm:VisualStateGroup.Transitions>
+    									<vsm:VisualTransition GeneratedDuration="0:0:0.3"/>
+    								</vsm:VisualStateGroup.Transitions>
+    								<vsm:VisualState x:Name="Normal"/>
+    								<vsm:VisualState x:Name="MouseDown">
+    									<Storyboard>
+    										<DoubleAnimation Storyboard.TargetName="PercentageTextBlock" Storyboard.TargetProperty="Opacity" To="1"/>
+    									</Storyboard>
+    								</vsm:VisualState>
+    							</vsm:VisualStateGroup>
+    						</vsm:VisualStateManager.VisualStateGroups>
+    						<Rectangle x:Name="ShadowElement" RadiusX="3" RadiusY="3" Fill="{TemplateBinding Background}" Stretch="Fill"/>
+    						<Rectangle x:Name="DownloadElement" RadiusX="3" RadiusY="3" Stretch="Fill">
+    							<Rectangle.Fill>
+    								<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+    									<GradientStop Color="#FF87C8FF" Offset="0"/>
+    									<GradientStop Color="#FF216FA5" Offset="1"/>
+    								</LinearGradientBrush>
+    							</Rectangle.Fill>
+    						</Rectangle>
+    						<Rectangle x:Name="HighlightElement" RadiusX="3" RadiusY="3" Fill="{TemplateBinding Foreground}" Stretch="Fill"/>
+    						<TextBlock HorizontalAlignment="Center" x:Name="PercentageTextBlock" VerticalAlignment="Center" Opacity="0" Visibility="Collapsed" FontFamily="Arial" Foreground="{TemplateBinding FontColor}"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
         
     </Application.Resources>
 </Application>

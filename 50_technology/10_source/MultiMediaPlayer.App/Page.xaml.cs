@@ -18,5 +18,10 @@ namespace MultiMediaPlayer.App
 		{
 			InitializeComponent();
 		}
+
+		private void SliderGauge_PercentChanged(object sender, PercentageChangedEventArgs.GaugePercentageChangedEventArgs e)
+		{
+			//Gauge.Percentage = (e.Percentage < Gauge.DownloadPercentage) ? e.Percentage : Gauge.DownloadPercentage;
+		}
 	}
 }

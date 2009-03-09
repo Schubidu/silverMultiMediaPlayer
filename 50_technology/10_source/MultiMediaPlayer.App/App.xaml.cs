@@ -18,7 +18,6 @@ namespace MultiMediaPlayer.App
 		public App()
 		{
 			this.Startup += this.Application_Startup;
-			this.Exit += this.Application_Exit;
 			this.UnhandledException += this.Application_UnhandledException;
 
 			InitializeComponent();
@@ -29,10 +28,6 @@ namespace MultiMediaPlayer.App
 			this.RootVisual = new Page();
 		}
 
-		private void Application_Exit(object sender, EventArgs e)
-		{
-
-		}
 		private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
 		{
 			// If the app is running outside of the debugger then report the exception using

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiMediaPlayer", "MultiMe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiMediaPlayer.App", "MultiMediaPlayer.App\MultiMediaPlayer.App.csproj", "{C960EE31-8939-46A5-AA67-0291AB0BA39C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiMediaPlayerApp", "MultiMediaPlayerApp_\MultiMediaPlayerApp.csproj", "{969F7AD1-58D5-4ED4-A7D0-E2A48B46548B}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -29,6 +31,10 @@ Global
 		{C960EE31-8939-46A5-AA67-0291AB0BA39C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C960EE31-8939-46A5-AA67-0291AB0BA39C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C960EE31-8939-46A5-AA67-0291AB0BA39C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{969F7AD1-58D5-4ED4-A7D0-E2A48B46548B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{969F7AD1-58D5-4ED4-A7D0-E2A48B46548B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{969F7AD1-58D5-4ED4-A7D0-E2A48B46548B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{969F7AD1-58D5-4ED4-A7D0-E2A48B46548B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

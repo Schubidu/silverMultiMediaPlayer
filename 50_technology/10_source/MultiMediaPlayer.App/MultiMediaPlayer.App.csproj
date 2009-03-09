@@ -80,6 +80,12 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MultiMediaPlayer\MultiMediaPlayer.csproj">
+      <Project>{D6034AE7-ADA1-43A7-919E-541DBDA5BA00}</Project>
+      <Name>MultiMediaPlayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight\v2.0\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
