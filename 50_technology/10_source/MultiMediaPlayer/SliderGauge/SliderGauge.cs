@@ -9,14 +9,20 @@ namespace MultiMediaPlayer
 	/// <summary>
 	/// Represents a Slider control which allows a user to select a percentage.
 	/// </summary>
+	[TemplatePart(Name = "Core", Type = typeof(FrameworkElement))]
+	[TemplateVisualState(Name = "Normal", GroupName = "CommonStates")]
+	[TemplateVisualState(Name = "MouseDown", GroupName = "CommonStates")]
+	[TemplateVisualState(Name = "MouseOver", GroupName = "CommonStates")]
 	public class SliderGauge : Control
 	{
 		private Panel m_rootElement;
+		private FrameworkElement corePart;
 		private FrameworkElement m_highlightElement;
 		private FrameworkElement m_shadowElement;
-		private FrameworkElement m_downloadElement;
 		private TextBlock m_percentageTextBlock;
 		private bool m_guagePathMouseCaptured;
+		private bool isMouserOver = false;
+		private bool isMouseDown = false;
 
 		/// <summary>
 		/// Fired when the percentage is changed on the control.
@@ -49,10 +55,18 @@ namespace MultiMediaPlayer
 			m_rootElement = GetTemplateChild("RootElement") as Panel;
 			m_highlightElement = GetTemplateChild("HighlightElement") as FrameworkElement;
 			m_shadowElement = GetTemplateChild("ShadowElement") as FrameworkElement;
-			m_downloadElement = GetTemplateChild("DownloadElement") as FrameworkElement;
 			m_percentageTextBlock = GetTemplateChild("PercentageTextBlock") as TextBlock;
-
+			corePart = (FrameworkElement)GetTemplateChild("Core");
 			UpdateVisuals();
+		}
+
+		protected virtual void GoToState(bool useTransitions) {
+			if (isMouseDown)
+				VisualStateManager.GoToState(this, "MouseDown", useTransitions);
+			if (isMouserOver)
+				VisualStateManager.GoToState(this, "MouseOver", useTransitions);
+			if (!isMouseDown && !isMouserOver)
+				VisualStateManager.GoToState(this, "Normal", useTransitions);
 		}
 
 		private void SilverlightGauge_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -63,7 +77,9 @@ namespace MultiMediaPlayer
 			this.Percentage = NewPercentage(e.GetPosition(this));
 
 			m_guagePathMouseCaptured = this.CaptureMouse();
-			VisualStateManager.GoToState(this, "MouseDown", true);
+			isMouseDown = true;
+			GoToState(true);
+
 		}
 
 		private void SilverlightGauge_MouseMove(object sender, MouseEventArgs e)
@@ -77,10 +93,12 @@ namespace MultiMediaPlayer
 				FirePercentChangedEvent();
 			}
 
-			VisualStateManager.GoToState(this, "MouseOver", true);
+			isMouserOver = true;
+			GoToState(true);
 		}
 
-		private double NewPercentage(Point location) {
+		protected virtual double NewPercentage(Point location)
+		{
 			double percentage = 0;
 			if (this.Orientation == Orientation.Vertical)
 				percentage = (1 - (location.Y / m_rootElement.ActualHeight));
@@ -90,18 +108,18 @@ namespace MultiMediaPlayer
 			return percentage;
 		}
 
-		private void UpdateVisuals()
+		protected virtual void UpdateVisuals()
 		{
 			if (m_highlightElement == null)
 				return;
 
 			m_highlightElement.Clip = ClippingRect(this.Percentage);
-			m_downloadElement.Clip = ClippingRect(this.DownloadPercentage);
+			//m_downloadElement.Clip = ClippingRect(this.DownloadPercentage);
 
 			m_percentageTextBlock.Visibility = ShowPercentageTextOnChange ? Visibility.Visible : Visibility.Collapsed;
 		}
 
-		private RectangleGeometry ClippingRect(double percentage)
+		protected RectangleGeometry ClippingRect(double percentage)
 		{
 			RectangleGeometry clippingRect = new RectangleGeometry();
 			if (this.Orientation == Orientation.Vertical)
@@ -122,7 +140,8 @@ namespace MultiMediaPlayer
 			m_highlightElement.ReleaseMouseCapture();
 			m_guagePathMouseCaptured = false;
 			FirePercentChangedEvent();
-			VisualStateManager.GoToState(this, "Normal", true);
+			isMouserOver = isMouseDown = false;
+			GoToState(true);
 		}
 
 		private void FirePercentChangedEvent()
@@ -133,15 +152,21 @@ namespace MultiMediaPlayer
 			}
 		}
 
+		protected virtual double ValidatePercentage(double percentage)
+		{
+			return percentage;
+		}
+
+
 		#region Percentage Dependency Property
 
 		/// <summary>
 		/// Gets or sets the current percentage.
 		/// </summary>
-		public double Percentage
+		public virtual double Percentage
 		{
 			get { return (double)GetValue(PercentageProperty); }
-			set { SetValue(PercentageProperty, Math.Max(0, Math.Min(1, value))); }
+			set { SetValue(PercentageProperty, Math.Max(0, Math.Min(1, ValidatePercentage(value)))); }
 		}
 
 		/// <summary>
@@ -166,29 +191,6 @@ namespace MultiMediaPlayer
 		}
 		#endregion
 
-		#region DownloadPercentage (DependencyProperty)
-
-		/// <summary>
-		/// DownloadPercentage Depency Property
-		/// </summary>
-		public double DownloadPercentage
-		{
-			get { return (double)GetValue(DownloadPercentageProperty); }
-			set { SetValue(DownloadPercentageProperty, Math.Max(0, Math.Min(1, value))); }
-		}
-		public static readonly DependencyProperty DownloadPercentageProperty =
-			DependencyProperty.Register("DownloadPercentage", typeof(double), typeof(SliderGauge),
-			  new PropertyMetadata(new PropertyChangedCallback(DownloadPercentageChanged)));
-
-		private static void DownloadPercentageChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-		{
-			SliderGauge g = d as SliderGauge;
-			if (g != null)
-			{
-				g.UpdateVisuals();
-			}
-		}
-		#endregion
 
 		#region Orientation Dependency Property
 

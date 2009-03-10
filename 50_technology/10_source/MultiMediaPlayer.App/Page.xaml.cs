@@ -17,6 +17,21 @@ namespace MultiMediaPlayer.App
 		public Page()
 		{
 			InitializeComponent();
+			//SGauge.PercentChanged += new PercentageChangedEventArgs.GaugePercentageChangedEventHandler(SGauge_PercentChanged);
+			Submit.Click += new RoutedEventHandler(Submit_Click);
+		}
+
+		void Submit_Click(object sender, RoutedEventArgs e)
+		{
+			Gauge.Percentage += 0.05;
+			SGauge.Percentage += 0.05;
+			Gauge_Copy.Percentage += 0.05;
+			SGauge_Copy.Percentage += 0.05;
+		}
+
+		void SGauge_PercentChanged(object sender, PercentageChangedEventArgs.GaugePercentageChangedEventArgs e)
+		{
+		//	MessageBox.Show(e.Percentage.ToString());
 		}
 
 		private void SliderGauge_PercentChanged(object sender, PercentageChangedEventArgs.GaugePercentageChangedEventArgs e)

@@ -3,9 +3,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:mmp="clr-namespace:MultiMediaPlayer;assembly=MultiMediaPlayer"
     Width="400" Height="300" xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
-    <Grid x:Name="LayoutRoot" Background="White">
-    		<mmp:SliderGauge VerticalAlignment="Top" Height="20" x:Name="Gauge" Percentage="0.25" PercentChanged="SliderGauge_PercentChanged" DownloadPercentage="0.75"></mmp:SliderGauge>
-			<mmp:SliderDownloadGauge Height="20" x:Name="SGauge" Percentage="0.3" DownloadPercentage="0.6"></mmp:SliderDownloadGauge>
+	<Grid x:Name="LayoutRoot" Background="White">
+		<mmp:SliderGauge VerticalAlignment="Top" Height="20" Orientation="Horizontal" x:Name="Gauge" Percentage="0.25" Margin="0,0,25,0"></mmp:SliderGauge>
+		<mmp:SliderDownloadGauge Width="20" HorizontalAlignment="Right" Orientation="Vertical" x:Name="SGauge" DownloadPercentage="0.6" Percentage="0.3" Margin="0,0,0,25"></mmp:SliderDownloadGauge>
+		<mmp:SliderGauge HorizontalAlignment="Left" Height="Auto" Orientation="Vertical" x:Name="Gauge_Copy" Percentage="0.25" Margin="0,25,0,0" Width="20" RenderTransformOrigin="0.5,0.5"></mmp:SliderGauge>
+		<mmp:SliderDownloadGauge Orientation="Horizontal" x:Name="SGauge_Copy" DownloadPercentage="0.6" IsIntermediate="True" Percentage="0.3" Margin="25,0,0,0" Height="20" VerticalAlignment="Bottom"/>
+		<Button x:Name="Submit" Margin="25">
+			<TextBlock>Submit</TextBlock>
+		</Button>
+
 
 
 	</Grid>

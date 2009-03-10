@@ -4,8 +4,6 @@
 	xmlns:local="clr-namespace:MultiMediaPlayer;assembly=MultiMediaPlayer" 
 	xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
 	<Style TargetType="local:SliderGauge">
-		<!--<Setter Property="Height" Value="20" />
-		<Setter Property="Width" Value="200" />-->
 		<Setter Property="FontSize" Value="15" />
 		<Setter Property="Orientation" Value="Horizontal" />
 		<Setter Property="FontColor" Value="White" />
@@ -34,11 +32,91 @@
 								<vsm:VisualStateGroup.Transitions>
 									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
 								</vsm:VisualStateGroup.Transitions>
-								<vsm:VisualState x:Name="Normal" />
+								<vsm:VisualState x:Name="Normal">
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="HighlightElement" Storyboard.TargetProperty="Opacity" To="1" />
+									</Storyboard>
+								</vsm:VisualState>
 								<vsm:VisualState x:Name="MouseDown">
 									<Storyboard>
 										<DoubleAnimation Storyboard.TargetName="PercentageTextBlock" Storyboard.TargetProperty="Opacity" To="1" />
+										<DoubleAnimation Storyboard.TargetName="HighlightElement" Storyboard.TargetProperty="Opacity" To="0.5" />
 									</Storyboard>
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+						</vsm:VisualStateManager.VisualStateGroups>
+						<Rectangle x:Name="ShadowElement" 
+                                   RadiusX="3" 
+                                   RadiusY="3" 
+                                   Fill="{TemplateBinding Background}" 
+                                   Stretch="Fill" />
+
+						<Rectangle x:Name="HighlightElement" 
+                                   RadiusX="3" 
+                                   RadiusY="3" 
+                                   Fill="{TemplateBinding Foreground}" 
+                                   Stretch="Fill" />
+
+						<TextBlock x:Name="PercentageTextBlock" 
+                                   Foreground="{TemplateBinding FontColor}" 
+                                   Opacity="0" 
+                                   Visibility="Collapsed" 
+                                   FontFamily="Arial" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="local:SliderDownloadGauge">
+		<Setter Property="FontSize" Value="15" />
+		<Setter Property="Orientation" Value="Horizontal" />
+		<Setter Property="FontColor" Value="White" />
+		<Setter Property="Foreground">
+			<Setter.Value>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+					<GradientStop Offset="0" Color="#FFB9FF87"/>
+					<GradientStop Offset="1" Color="#FF3BA521"/>
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Background">
+			<Setter.Value>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+					<GradientStop Offset="0" Color="#FFC0C0C0"/>
+					<GradientStop Offset="1" Color="#FF303030"/>
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:SliderDownloadGauge">
+					<Grid x:Name="RootElement">
+						<vsm:VisualStateManager.VisualStateGroups>
+							<vsm:VisualStateGroup x:Name="CommonStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="Normal">
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="HighlightElement" Storyboard.TargetProperty="Opacity" To="1" />
+									</Storyboard>
+								</vsm:VisualState>
+								<vsm:VisualState x:Name="MouseDown">
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="PercentageTextBlock" Storyboard.TargetProperty="Opacity" To="1" />
+										<DoubleAnimation Storyboard.TargetName="HighlightElement" Storyboard.TargetProperty="Opacity" To="0.5" />
+									</Storyboard>
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+							<vsm:VisualStateGroup x:Name="DownloadStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="Intermediate">
+								</vsm:VisualState>
+								<vsm:VisualState x:Name="Download">
 								</vsm:VisualState>
 							</vsm:VisualStateGroup>
 						</vsm:VisualStateManager.VisualStateGroups>
@@ -79,4 +157,5 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
+
 </ResourceDictionary>
