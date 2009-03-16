@@ -19,6 +19,7 @@ namespace MultiMediaPlayer
 		private FrameworkElement corePart;
 		private FrameworkElement m_highlightElement;
 		private FrameworkElement m_shadowElement;
+		private FrameworkElement m_sliderElement;
 		private TextBlock m_percentageTextBlock;
 		private bool m_guagePathMouseCaptured;
 		private bool isMouserOver = false;
@@ -55,6 +56,7 @@ namespace MultiMediaPlayer
 			m_rootElement = GetTemplateChild("RootElement") as Panel;
 			m_highlightElement = GetTemplateChild("HighlightElement") as FrameworkElement;
 			m_shadowElement = GetTemplateChild("ShadowElement") as FrameworkElement;
+			m_sliderElement = GetTemplateChild("SliderElement") as FrameworkElement;
 			m_percentageTextBlock = GetTemplateChild("PercentageTextBlock") as TextBlock;
 			corePart = (FrameworkElement)GetTemplateChild("Core");
 			UpdateVisuals();
@@ -110,13 +112,40 @@ namespace MultiMediaPlayer
 
 		protected virtual void UpdateVisuals()
 		{
+			//m_rootElement.Clip = ClippingRect(1d);
 			if (m_highlightElement == null)
+			{
 				return;
+			}
+			else
+			{
+				m_highlightElement.Clip = ClippingRect(this.Percentage);
+			}
 
-			m_highlightElement.Clip = ClippingRect(this.Percentage);
-			//m_downloadElement.Clip = ClippingRect(this.DownloadPercentage);
+			if (m_sliderElement == null)
+			{
+				return;
+			}
+			else
+			{
+				Thickness t = new Thickness();
+				if (this.Orientation == Orientation.Vertical)
+				{
+					t.Top = ((1 - this.Percentage) * m_rootElement.ActualHeight);
+				}
+				else
+				{
+					t.Left = (this.Percentage * m_rootElement.ActualWidth);
+				}
+				m_sliderElement.Margin = t;
+			}
 
-			m_percentageTextBlock.Visibility = ShowPercentageTextOnChange ? Visibility.Visible : Visibility.Collapsed;
+
+			if (m_percentageTextBlock == null) {
+				return;
+			} else {
+				m_percentageTextBlock.Visibility = ShowPercentageTextOnChange ? Visibility.Visible : Visibility.Collapsed;
+			}
 		}
 
 		protected RectangleGeometry ClippingRect(double percentage)
@@ -134,6 +163,8 @@ namespace MultiMediaPlayer
 			}
 			return clippingRect;
 		}
+
+
 
 		private void SilverlightGauge_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 		{

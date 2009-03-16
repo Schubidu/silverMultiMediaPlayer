@@ -57,6 +57,17 @@
                                    Fill="{TemplateBinding Foreground}" 
                                    Stretch="Fill" />
 
+						<ContentPresenter x:Name="SliderElement"></ContentPresenter>
+						<!--<Rectangle x:Name="SliderElement"
+								   RadiusX="3"
+								   RadiusY="3"
+								   Fill="Yellow"
+								   Width="10"
+								   Height="10"
+								   VerticalAlignment="Top"
+								   HorizontalAlignment="Left">
+						</Rectangle>-->
+
 						<TextBlock x:Name="PercentageTextBlock" 
                                    Foreground="{TemplateBinding FontColor}" 
                                    Opacity="0" 
@@ -144,7 +155,16 @@
                                    RadiusY="3" 
                                    Fill="{TemplateBinding Foreground}" 
                                    Stretch="Fill" />
-
+						
+						<Rectangle x:Name="SliderElement"
+								   RadiusX="3"
+								   RadiusY="3"
+								   Fill="Yellow"
+								   Width="10"
+								   Height="10"
+								   VerticalAlignment="Top"
+								   HorizontalAlignment="Left">
+						</Rectangle>
 						<TextBlock x:Name="PercentageTextBlock" 
                                    Foreground="{TemplateBinding FontColor}" 
                                    Opacity="0" 
@@ -157,5 +177,39 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-
+	<Style TargetType="local:ButtonIcon">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:ButtonIcon">
+					<Grid x:Name="RootElement">
+						<vsm:VisualStateManager.VisualStateGroups>
+							<vsm:VisualStateGroup x:Name="CommonStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="Normal">
+								</vsm:VisualState>
+								<vsm:VisualState x:Name="MouseDown">
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+							<vsm:VisualStateGroup x:Name="IconStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="FirstState">
+								</vsm:VisualState>
+								<vsm:VisualState x:Name="SecondStaet">
+								</vsm:VisualState>
+								<vsm:VisualState x:Name="ThirdState">
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+						</vsm:VisualStateManager.VisualStateGroups>
+						<ContentPresenter x:Name="FirstStateElement" />
+						<ContentPresenter x:Name="SecondStateElement" />
+						<ContentPresenter x:Name="ThirdStateElement" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 </ResourceDictionary>

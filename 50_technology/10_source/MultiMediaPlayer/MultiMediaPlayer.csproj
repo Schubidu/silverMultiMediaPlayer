@@ -50,6 +50,9 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonIcon.cs" />
+    <Compile Include="enums.cs" />
+    <Compile Include="PanelButton.cs" />
     <Compile Include="SliderGauge\PercentageChangedEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SliderGauge\SliderDownloadGauge.cs" />

@@ -40,9 +40,14 @@ namespace MultiMediaPlayer
 
 		protected override void UpdateVisuals() {
 			if (m_downloadElement == null)
+			{
 				return;
+			}
+			else
+			{
+				m_downloadElement.Clip = ClippingRect(this.DownloadPercentage);
+			}
 			base.UpdateVisuals();
-			m_downloadElement.Clip = ClippingRect(this.DownloadPercentage);
 
 		}
 

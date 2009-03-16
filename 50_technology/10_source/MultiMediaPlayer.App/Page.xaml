@@ -3,12 +3,76 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:mmp="clr-namespace:MultiMediaPlayer;assembly=MultiMediaPlayer"
     Width="400" Height="300" xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
+	<UserControl.Resources>
+		<Style x:Key="SliderGaugeStyle2" TargetType="mmp:SliderGauge">
+			<Setter Property="FontSize" Value="15"/>
+			<Setter Property="Orientation" Value="Horizontal"/>
+			<Setter Property="FontColor" Value="White"/>
+			<Setter Property="Foreground">
+				<Setter.Value>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FFB9FF87" Offset="0"/>
+						<GradientStop Color="#FF3BA521" Offset="1"/>
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Background">
+				<Setter.Value>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FFC0C0C0" Offset="0"/>
+						<GradientStop Color="#FF303030" Offset="1"/>
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="mmp:SliderGauge">
+						<Grid x:Name="RootElement">
+							<vsm:VisualStateManager.VisualStateGroups>
+								<vsm:VisualStateGroup x:Name="CommonStates">
+									<vsm:VisualStateGroup.Transitions>
+										<vsm:VisualTransition GeneratedDuration="0:0:0.3"/>
+									</vsm:VisualStateGroup.Transitions>
+									<vsm:VisualState x:Name="Normal">
+										<Storyboard>
+											<DoubleAnimation Storyboard.TargetName="HighlightElement" Storyboard.TargetProperty="Opacity" To="1"/>
+										</Storyboard>
+									</vsm:VisualState>
+									<vsm:VisualState x:Name="MouseDown">
+										<Storyboard>
+											<DoubleAnimation Storyboard.TargetName="PercentageTextBlock" Storyboard.TargetProperty="Opacity" To="1"/>
+											<DoubleAnimation Storyboard.TargetName="HighlightElement" Storyboard.TargetProperty="Opacity" To="0.5"/>
+										</Storyboard>
+									</vsm:VisualState>
+								</vsm:VisualStateGroup>
+							</vsm:VisualStateManager.VisualStateGroups>
+							<Rectangle x:Name="ShadowElement" RadiusX="3" RadiusY="3" Fill="{TemplateBinding Background}" Stretch="Fill"/>
+							<Rectangle x:Name="HighlightElement" RadiusX="3" RadiusY="3" Fill="{TemplateBinding Foreground}" Stretch="Fill"/>
+							<ContentPresenter x:Name="SliderElement">
+								<Rectangle Height="Auto" Width="10" Fill="#99E9F509" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" RadiusX="5" RadiusY="5">
+									<Rectangle.RenderTransform>
+										<TransformGroup>
+											<ScaleTransform/>
+											<SkewTransform/>
+											<RotateTransform/>
+											<TranslateTransform X="-5"/>
+										</TransformGroup>
+									</Rectangle.RenderTransform>
+								</Rectangle>
+							</ContentPresenter>
+							<TextBlock HorizontalAlignment="Center" x:Name="PercentageTextBlock" VerticalAlignment="Center" Opacity="0" Visibility="Collapsed" FontFamily="Arial" Foreground="{TemplateBinding FontColor}"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
 	<Grid x:Name="LayoutRoot" Background="White">
-		<mmp:SliderGauge VerticalAlignment="Top" Height="20" Orientation="Horizontal" x:Name="Gauge" Percentage="0.25" Margin="0,0,25,0"></mmp:SliderGauge>
+		<mmp:SliderGauge VerticalAlignment="Top" Height="20" Orientation="Horizontal" x:Name="Gauge" Percentage="0.25" Margin="0,0,25,0" Style="{StaticResource SliderGaugeStyle2}"></mmp:SliderGauge>
 		<mmp:SliderDownloadGauge Width="20" HorizontalAlignment="Right" Orientation="Vertical" x:Name="SGauge" DownloadPercentage="0.6" Percentage="0.3" Margin="0,0,0,25"></mmp:SliderDownloadGauge>
 		<mmp:SliderGauge HorizontalAlignment="Left" Height="Auto" Orientation="Vertical" x:Name="Gauge_Copy" Percentage="0.25" Margin="0,25,0,0" Width="20" RenderTransformOrigin="0.5,0.5"></mmp:SliderGauge>
 		<mmp:SliderDownloadGauge Orientation="Horizontal" x:Name="SGauge_Copy" DownloadPercentage="0.6" IsIntermediate="True" Percentage="0.3" Margin="25,0,0,0" Height="20" VerticalAlignment="Bottom"/>
-		<Button x:Name="Submit" Margin="25">
+		<Button x:Name="Submit" Margin="25" Style="{StaticResource ButtonStyle1}">
 			<TextBlock>Submit</TextBlock>
 		</Button>
 
