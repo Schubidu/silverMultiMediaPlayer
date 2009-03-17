@@ -9,24 +9,13 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace MultiMediaPlayer
+namespace MultiMediaPlayer.MediaData
 {
-	public enum Iconstate
+	public class Marker
 	{
-		FirstState, SecondState, ThirdState
-	}
-	public enum MediaType
-	{
-		Unknown = 0,
-		Directory = 1,
-		Video = 2,
-		Audio = 3,
-		Picture = 4
-	}
-	public enum ContentType
-	{
-		Unknown = 0,
-		Content = 1,
-		Ad = 2
+		public string Name { get; set; }
+		public string Text { get; set; }
+		public TimeSpan Start { get; set; }
+		public TimeSpan End { get; set; }
 	}
 }

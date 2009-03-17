@@ -11,22 +11,8 @@ using System.Windows.Shapes;
 
 namespace MultiMediaPlayer
 {
-	public enum Iconstate
+	public class Player
 	{
-		FirstState, SecondState, ThirdState
-	}
-	public enum MediaType
-	{
-		Unknown = 0,
-		Directory = 1,
-		Video = 2,
-		Audio = 3,
-		Picture = 4
-	}
-	public enum ContentType
-	{
-		Unknown = 0,
-		Content = 1,
-		Ad = 2
+
 	}
 }

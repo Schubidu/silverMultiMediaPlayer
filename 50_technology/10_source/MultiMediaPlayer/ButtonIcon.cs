@@ -26,12 +26,24 @@ namespace MultiMediaPlayer
 		private FrameworkElement m_thirdStateElement;
 
 		public ButtonIcon() 
-		{ 
+		{
+			DefaultStyleKey = typeof(ButtonIcon);
+			this.LayoutUpdated += new EventHandler(ButtonIcon_LayoutUpdated);
+			this.Loaded += new RoutedEventHandler(ButtonIcon_Loaded);
+		}
+
+		void ButtonIcon_Loaded(object sender, RoutedEventArgs e)
+		{
+			UpdateVisuals();
+		}
+
+		void ButtonIcon_LayoutUpdated(object sender, EventArgs e)
+		{
+			UpdateVisuals();
 		}
 
 		public override void OnApplyTemplate()
 		{
-			base.OnApplyTemplate();
 			m_rootElement = GetTemplateChild("RootElement") as Panel;
 			m_firstStateElement = GetTemplateChild("FirstStateElement") as FrameworkElement;
 			m_secondStateElement = GetTemplateChild("SecondStateElement") as FrameworkElement;
@@ -41,22 +53,24 @@ namespace MultiMediaPlayer
 
 		protected virtual void UpdateVisuals()
 		{
-
+			SetState(State);
 		}
 
-		public void SetState(Iconstate state)
+		private void SetState(Iconstate state)
 		{
-			switch (state) { 
-				case Iconstate.FirstState:
-					VisualStateManager.GoToState(this, "FirstState", true);
-					break;
-				case Iconstate.SecondState:
-					VisualStateManager.GoToState(this, "SecondState", true);
-					break;
-				case Iconstate.ThirdState:
-					VisualStateManager.GoToState(this, "ThirdState", true);
-					break;
-			}
+			VisualStateManager.GoToState(this, state+"", true);
+			//switch (state)
+			//{ 
+			//    case Iconstate.FirstState:
+			//        VisualStateManager.GoToState(this, "FirstState", true);
+			//        break;
+			//    case Iconstate.SecondState:
+			//        VisualStateManager.GoToState(this, "SecondState", true);
+			//        break;
+			//    case Iconstate.ThirdState:
+			//        VisualStateManager.GoToState(this, "ThirdState", true);
+			//        break;
+			//}
 
 		}
 
@@ -69,7 +83,10 @@ namespace MultiMediaPlayer
 		public Iconstate State
 		{
 			get { return (Iconstate)GetValue(StateProperty); }
-			set { SetValue(StateProperty, value); }
+			set {
+				SetState(value);
+				SetValue(StateProperty, value); 
+			}
 		}
 		public static readonly DependencyProperty StateProperty =
 			DependencyProperty.Register("State", typeof(Iconstate), typeof(ButtonIcon),

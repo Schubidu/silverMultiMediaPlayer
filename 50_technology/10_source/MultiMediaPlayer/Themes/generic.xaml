@@ -178,6 +178,7 @@
 		</Setter>
 	</Style>
 	<Style TargetType="local:ButtonIcon">
+
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="local:ButtonIcon">
@@ -197,16 +198,57 @@
 									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
 								</vsm:VisualStateGroup.Transitions>
 								<vsm:VisualState x:Name="FirstState">
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="FirstStateElement" Storyboard.TargetProperty="Opacity" To="1" />
+										<DoubleAnimation Storyboard.TargetName="SecondStateElement" Storyboard.TargetProperty="Opacity" To="0" />
+										<DoubleAnimation Storyboard.TargetName="ThirdStateElement" Storyboard.TargetProperty="Opacity" To="0" />
+									</Storyboard>
 								</vsm:VisualState>
-								<vsm:VisualState x:Name="SecondStaet">
+								<vsm:VisualState x:Name="SecondState">
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="FirstStateElement" Storyboard.TargetProperty="Opacity" To="0" />
+										<DoubleAnimation Storyboard.TargetName="SecondStateElement" Storyboard.TargetProperty="Opacity" To="1" />
+										<DoubleAnimation Storyboard.TargetName="ThirdStateElement" Storyboard.TargetProperty="Opacity" To="0" />
+									</Storyboard>
 								</vsm:VisualState>
 								<vsm:VisualState x:Name="ThirdState">
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="FirstStateElement" Storyboard.TargetProperty="Opacity" To="0" />
+										<DoubleAnimation Storyboard.TargetName="SecondStateElement" Storyboard.TargetProperty="Opacity" To="0" />
+										<DoubleAnimation Storyboard.TargetName="ThirdStateElement" Storyboard.TargetProperty="Opacity" To="1" />
+									</Storyboard>
 								</vsm:VisualState>
 							</vsm:VisualStateGroup>
 						</vsm:VisualStateManager.VisualStateGroups>
-						<ContentPresenter x:Name="FirstStateElement" />
+						<!--<ContentPresenter x:Name="FirstStateElement" />
 						<ContentPresenter x:Name="SecondStateElement" />
-						<ContentPresenter x:Name="ThirdStateElement" />
+						<ContentPresenter x:Name="ThirdStateElement" />-->
+						<Ellipse x:Name="FirstStateElement" Fill="Red" Opacity="1" Stretch="Fill"></Ellipse>
+						<Ellipse x:Name="SecondStateElement" Fill="Yellow" Opacity="0" Stretch="Fill"></Ellipse>
+						<Ellipse x:Name="ThirdStateElement" Fill="ForestGreen" Opacity="0" Stretch="Fill"></Ellipse>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="local:TestPanel">
+
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:TestPanel">
+					<Grid x:Name="RootElement">
+						<local:ButtonIcon x:Name="ButIcon" />
+						<StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal" MaxHeight="100">
+							<Button x:Name="State1">
+								<TextBlock Margin="10">State1</TextBlock>
+							</Button>
+							<Button x:Name="State2">
+								<TextBlock Margin="10">State2</TextBlock>
+							</Button>
+							<Button x:Name="State3">
+								<TextBlock Margin="10">State3</TextBlock>
+							</Button>
+						</StackPanel>
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>
