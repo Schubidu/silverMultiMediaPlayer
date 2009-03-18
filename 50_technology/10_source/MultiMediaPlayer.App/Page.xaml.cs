@@ -18,16 +18,34 @@ namespace MultiMediaPlayer.App
 		{
 			InitializeComponent();
 			//SGauge.PercentChanged += new PercentageChangedEventArgs.GaugePercentageChangedEventHandler(SGauge_PercentChanged);
-			Submit.Click += new RoutedEventHandler(Submit_Click);
+			//Submit.Click += new RoutedEventHandler(Submit_Click);
+			//State1.Click += new RoutedEventHandler(State1_Click);
+			//State2.Click += new RoutedEventHandler(State2_Click);
+			//State3.Click += new RoutedEventHandler(State3_Click);
 		}
 
-		void Submit_Click(object sender, RoutedEventArgs e)
-		{
-			Gauge.Percentage += 0.05;
-			SGauge.Percentage += 0.05;
-			Gauge_Copy.Percentage += 0.05;
-			SGauge_Copy.Percentage += 0.05;
-		}
+		//void State3_Click(object sender, RoutedEventArgs e)
+		//{
+		//    ButIcon.State = Iconstate.FirstState;
+		//}
+
+		//void State2_Click(object sender, RoutedEventArgs e)
+		//{
+		//    ButIcon.State = Iconstate.SecondState;
+		//}
+
+		//void State1_Click(object sender, RoutedEventArgs e)
+		//{
+		//    ButIcon.State = Iconstate.ThirdState;
+		//}
+
+		//void Submit_Click(object sender, RoutedEventArgs e)
+		//{
+		//    Gauge.Percentage += 0.05;
+		//    SGauge.Percentage += 0.05;
+		//    Gauge_Copy.Percentage += 0.05;
+		//    SGauge_Copy.Percentage += 0.05;
+		//}
 
 		void SGauge_PercentChanged(object sender, PercentageChangedEventArgs.GaugePercentageChangedEventArgs e)
 		{

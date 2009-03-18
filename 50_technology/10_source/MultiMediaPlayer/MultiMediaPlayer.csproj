@@ -48,15 +48,22 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Net" />
     <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ButtonIcon.cs" />
     <Compile Include="enums.cs" />
     <Compile Include="MediaControl.cs" />
+    <Compile Include="MediaData\AudioItem.cs" />
+    <Compile Include="MediaData\Enums.cs" />
     <Compile Include="MediaData\Marker.cs" />
+    <Compile Include="MediaData\MediaCollection.cs" />
+    <Compile Include="MediaData\MediaItem.cs" />
     <Compile Include="MediaData\Meta.cs" />
+    <Compile Include="MediaData\PictureItem.cs" />
     <Compile Include="MediaData\Tracking.cs" />
     <Compile Include="MediaData\TrackingItem.cs" />
+    <Compile Include="MediaData\VideoItem.cs" />
     <Compile Include="PanelButton.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="SliderGauge\PercentageChangedEventArgs.cs" />
@@ -64,6 +71,7 @@
     <Compile Include="SliderGauge\SliderDownloadGauge.cs" />
     <Compile Include="SliderGauge\SliderGauge.cs" />
     <Compile Include="TestPanel.cs" />
+    <Compile Include="VideoControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Themes\generic.xaml">

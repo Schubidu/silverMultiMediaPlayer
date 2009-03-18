@@ -17,19 +17,57 @@ namespace MultiMediaPlayer
 		{
 
 		}
+
+		public virtual void SetData(Object obj)
+		{
+			MediaData.MediaItem item = obj as MediaData.MediaItem; 
+			this.MediaItem = item;
+			this.Content = item.Content;
+			this.Duration = item.Duration;
+			this.IsFirst = item.IsFirst;
+			this.IsLast = item.IsLast;
+			this.IsSkippable = item.IsSkippable;
+			this.ItemType = item.ItemType;
+			this.Markers = item.Markers;
+			this.MetaData = item.Metadata;
+			this.SkipAfter = item.SkipAfter;
+			this.ThumbUrl = item.ThumbUrl;
+			this.TrackingData = item.TrackingData;
+			this.UseDuration = item.UseDuration;
+		}
+
+		#region MediaItem (DependencyProperty)
+
+		/// <summary>
+		/// A description of the property.
+		/// </summary>
+		public MediaData.MediaItem MediaItem
+		{
+			get { return (MediaData.MediaItem)GetValue(MediaItemProperty); }
+			set 
+			{
+				SetValue(MediaItemProperty, value); 
+			}
+		}
+		public static readonly DependencyProperty MediaItemProperty =
+			DependencyProperty.Register("MediaItem", typeof(MediaData.MediaItem), typeof(MediaControl),
+			  new PropertyMetadata(null));
+
+		#endregion
+
 		#region Content (DependencyProperty)
 
 		/// <summary>
 		/// Kind of Content
 		/// </summary>
-		public ContentType Content
+		public MediaData.ContentType Content
 		{
-			get { return (ContentType)GetValue(ContentProperty); }
+			get { return (MediaData.ContentType)GetValue(ContentProperty); }
 			set { SetValue(ContentProperty, value); }
 		}
 		public static readonly DependencyProperty ContentProperty =
-			DependencyProperty.Register("Content", typeof(ContentType), typeof(MediaControl),
-			  new PropertyMetadata(ContentType.Unknown));
+			DependencyProperty.Register("Content", typeof(MediaData.ContentType), typeof(MediaControl),
+			  new PropertyMetadata(MediaData.ContentType.Unknown));
 
 		#endregion
 
@@ -102,14 +140,14 @@ namespace MultiMediaPlayer
 		/// <summary>
 		/// Kind of MediaItem
 		/// </summary>
-		public MediaType ItemType
+		public MediaData.MediaType ItemType
 		{
-			get { return (MediaType)GetValue(ItemTypeProperty); }
+			get { return (MediaData.MediaType)GetValue(ItemTypeProperty); }
 			set { SetValue(ItemTypeProperty, value); }
 		}
 		public static readonly DependencyProperty ItemTypeProperty =
-			DependencyProperty.Register("ItemType", typeof(MediaType), typeof(MediaControl),
-			  new PropertyMetadata(MediaType.Unknown));
+			DependencyProperty.Register("ItemType", typeof(MediaData.MediaType), typeof(MediaControl),
+			  new PropertyMetadata(MediaData.MediaType.Unknown));
 
 		#endregion
 
@@ -205,8 +243,9 @@ namespace MultiMediaPlayer
 		}
 		public static readonly DependencyProperty UseDurationProperty =
 			DependencyProperty.Register("UseDuration", typeof(bool), typeof(MediaControl),
-			  new PropertyMetadata(true));
+			  new PropertyMetadata(true);
 
 		#endregion
+
 	}
 }
