@@ -4,6 +4,9 @@
 	xmlns:mmp="clr-namespace:MultiMediaPlayer;assembly=MultiMediaPlayer"
     xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
 	<Grid x:Name="LayoutRoot" Background="White">
-		<mmp:Player IsSinglePlayer="True" PlayerKey="12345" MediaXmlUri="http://localhost:62464/media.xml" />
+		<mmp:Player x:Name="MyPlayer" IsSinglePlayer="True" MediaXmlUri="http://localhost:62464/media.xml" />
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+			<Button x:Name="btnSingle" Tag="1" Content="Switch To MultiPlayer" Click="btn_Click" Margin="10" Padding="5" />
+		</StackPanel>
 	</Grid>
 </UserControl>

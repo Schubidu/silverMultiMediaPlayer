@@ -16,51 +16,65 @@ namespace MultiMediaPlayer.MediaData
 		// Bindable Collection
 		public ObservableCollection<MediaItem> MediaItems { get; set; }
 
-		public MediaCollection()
-		{
-			if (HtmlPage.IsEnabled)
-				LoadMediaXML();
+		private Uri mediaXml;
+		public Uri MediaXml {
+			get {
+				return mediaXml;
+			}
+			set {
+				mediaXml = value;
+				if (HtmlPage.IsEnabled)
+					LoadMediaXML(mediaXml);
+			}
 		}
 
-		private void LoadMediaXML()
+		public MediaCollection()
+		{
+		}
+
+		private void LoadMediaXML(Uri mediaXml)
 		{
 			// Use a normal webclient to fetch the feed
 			var wc = new WebClient();
 			// New lambda style delegate declaration
-			wc.DownloadStringCompleted += (sender, e) =>
+			wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(wc_DownloadStringCompleted);
+			wc.DownloadStringAsync(mediaXml);
+		}
+
+		void wc_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+		{
+			Object s = sender;
+			try
 			{
-				try
+				var doc = XDocument.Parse(e.Result);
+				var items = doc.Descendants().First().Elements();
+				MediaItems = new ObservableCollection<MediaItem>();
+				foreach (var item in items)
 				{
-					var doc = XDocument.Parse(e.Result);
-					var items = doc.Descendants().First().Elements();
-					MediaItems = new ObservableCollection<MediaItem>();
-					foreach (var item in items)
+					MediaItem mItem = new MediaItem();
+					switch (item.Name.ToString().ToLower())
 					{
-						MediaItem mItem = new MediaItem();
-						switch (item.Name.ToString().ToLower())
-						{
-							case "video":
-								mItem = new VideoItem(item);
-								break;
-							case "audio":
-								mItem = new AudioItem(item);
-								break;
-							case "picture":
-								mItem = new PictureItem(item);
-								break;
-						}
-						mItem.IsFirst = (items.First().Equals(item));
-						mItem.IsLast = (items.Last().Equals(item));
-						MediaItems.Add(mItem);
+						case "video":
+							mItem = new VideoItem(item);
+							break;
+						case "audio":
+							mItem = new AudioItem(item);
+							break;
+						case "picture":
+							mItem = new PictureItem(item);
+							break;
 					}
-					PropertyChanged(this, new PropertyChangedEventArgs("MediaItems"));
+					mItem.IsFirst = (items.First().Equals(item));
+					mItem.IsLast = (items.Last().Equals(item));
+					MediaItems.Add(mItem);
 				}
-				catch (Exception ex)
-				{
-					//HtmlPage.Window.Alert(ex.Message);
-				};
+				if(PropertyChanged != null)
+					PropertyChanged(this, new PropertyChangedEventArgs("MediaItems"));
+			}
+			catch (Exception ex)
+			{
+				//HtmlPage.Window.Alert(ex.Message);
 			};
-			wc.DownloadStringAsync(GetXML());
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

@@ -231,24 +231,123 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	<Style TargetType="local:TestPanel">
-
+	<Style TargetType="local:Player">
+		<Setter Property="Background">
+			<Setter.Value>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+					<GradientStop Offset="0" Color="#FFC0C0C0"/>
+					<GradientStop Offset="1" Color="#FF303030"/>
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="local:TestPanel">
-					<Grid x:Name="RootElement">
-						<local:ButtonIcon x:Name="ButIcon" />
-						<StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal" MaxHeight="100">
-							<Button x:Name="State1">
-								<TextBlock Margin="10">State1</TextBlock>
+				<ControlTemplate TargetType="local:Player">
+					<Grid x:Name="RootElement" Background="{TemplateBinding Background}">
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="local:Views.SinglePlayer">
+		<Setter Property="Background">
+			<Setter.Value>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+					<GradientStop Offset="0" Color="#FF00C0C0"/>
+					<GradientStop Offset="1" Color="#FF003030"/>
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:Views.SinglePlayer">
+					<Grid x:Name="RootElement" Background="{TemplateBinding Background}">
+						<TextBlock Foreground="AntiqueWhite" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Bottom">SinglePlayer</TextBlock>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="local:Views.MultiPlayer">
+		<Setter Property="Background">
+			<Setter.Value>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+					<GradientStop Offset="0" Color="#FFC0C000"/>
+					<GradientStop Offset="1" Color="#FF303000"/>
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:Views.MultiPlayer">
+					<Grid x:Name="RootElement" Background="{TemplateBinding Background}">
+						<TextBlock Foreground="AntiqueWhite" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Bottom">MultiPlayer</TextBlock>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="local:VideoControl">
+		<Setter Property="Background">
+			<Setter.Value>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+					<GradientStop Offset="1" Color="#FFC0C000"/>
+					<GradientStop Offset="0" Color="#FF303000"/>
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:VideoControl">
+					<Grid x:Name="RootElement" Background="{TemplateBinding Background}">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="35" />
+						</Grid.RowDefinitions>
+						<Border Grid.Row="0">
+							<MediaElement x:Name="Video" AutoPlay="True" />
+						</Border>
+						<Grid Margin="0,5,0,0" Grid.Row="1">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="20" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="25" />
+								<ColumnDefinition Width="25" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="95" />
+								<ColumnDefinition Width="25" />
+								<ColumnDefinition Width="25" />
+								<ColumnDefinition Width="25" />
+							</Grid.ColumnDefinitions>
+							<!--<Mediaplayer:ButPlayPauseControl x:Name="ButPlayPause" Margin="0,0,5,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>-->
+							<Button Grid.Column="1" Grid.Row="0" Margin="0,0,5,0" x:Name="ButSkipPrevious">
+								<Path Height="10" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="10" Stretch="Fill" Data="M0,0 L3,0 L3,3.9338851 L7,0 L7,3.9338846 L10.999999,0 L10.999999,10 L7,5.9338856 L7,10 L3,5.9338851 L3,10 L0,10 z"/>
 							</Button>
-							<Button x:Name="State2">
-								<TextBlock Margin="10">State2</TextBlock>
+							<local:SliderDownloadGauge x:Name="MediaSlider" Margin="0,0,5,0" />
+							<!--<Mediaplayer:MediaDurationControl Margin="0,0,5,0" Grid.Column="3" x:Name="MediaDuration"/>-->
+							<Button Grid.Column="4" Grid.Row="0" Margin="0,0,5,0" x:Name="ButSkipNext" Style="{StaticResource ButtonStyle1}">
+								<Path Height="10" Fill="{StaticResource ScrollerThumbBrush}" Stretch="Fill" Data="M0,0 L3,0 L3,3.9338851 L7,0 L7,3.9338846 L10.999999,0 L10.999999,10 L7,5.9338856 L7,10 L3,5.9338851 L3,10 L0,10 z" HorizontalAlignment="Center" VerticalAlignment="Center" Width="10" RenderTransformOrigin="0.5,0.5">
+									<Path.RenderTransform>
+										<TransformGroup>
+											<ScaleTransform ScaleX="-1"/>
+											<SkewTransform/>
+											<RotateTransform/>
+											<TranslateTransform/>
+										</TransformGroup>
+									</Path.RenderTransform>
+								</Path>
 							</Button>
-							<Button x:Name="State3">
-								<TextBlock Margin="10">State3</TextBlock>
+							<Button x:Name="ButFullscreen" Grid.Column="5" Grid.Row="0" Margin="0,0,5,0" HorizontalAlignment="Stretch" Style="{StaticResource ButtonStyle1}">
+								<!--<Mediaplayer:FullscreenVisualControl Height="14" Width="14"/>-->
 							</Button>
-						</StackPanel>
+							<Button x:Name="ButMute" Grid.Column="6" Grid.Row="0" Margin="0,0,5,0" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle1}">
+								<!--<Mediaplayer:ButMuteVisualControl x:Name="ButMuteVisual" Height="14" Width="14"/>-->
+							</Button>
+
+						</Grid>
+
+
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>

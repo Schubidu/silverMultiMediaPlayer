@@ -1,25 +1,208 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MultiMediaPlayer.AppData.ApplikationKey" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAIAAAAgACAAAAAAAAAAAkAAEAAAABAAAAA=</HashCode>
+      <FileName>AppData\ApplikationKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.AppData.ApplikationKeyEventArgs" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>AppData\ApplikationKeyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.ButtonIcon" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAABAAAAAQAAAAgAAQgAAQAAQgAAABAAAAAI=</HashCode>
+      <FileName>ButtonIcon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.MediaControl" Collapsed="true">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAABBAmBCAIAQABkAAAAjAQQAAEAAJCQBABAIAgA=</HashCode>
+      <FileName>MediaControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.PanelButton" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PanelButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.Player" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAIgAIEgAAIAAAAEAAgABAUgAAAgAAAAAAAEAACAA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.Settings" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="MultiMediaPlayer.PercentageChangedEventArgs" Collapsed="true">
-    <Position X="3" Y="0.5" Width="1.5" />
+    <Position X="8" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SliderGauge\PercentageChangedEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MultiMediaPlayer.SliderDownloadGauge" Collapsed="true">
-    <Position X="0.5" Y="2" Width="1.5" />
+    <Position X="0.5" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABQAARAABAAIAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABQAARQABoAIAACAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>SliderGauge\SliderDownloadGauge.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MultiMediaPlayer.SliderGauge">
-    <Position X="2.75" Y="1.25" Width="1.5" />
+  <Class Name="MultiMediaPlayer.SliderGauge" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAQAAIRACSBCgAAAIEBgAAAAAAgAQoEBEAAKgQCAAAI=</HashCode>
+      <HashCode>IAQAAIRACSBCgAgAIEBgAAAAAAwAUoEBEAAKgQCCAAI=</HashCode>
       <FileName>SliderGauge\SliderGauge.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="MultiMediaPlayer.VideoControl" Collapsed="true">
+    <Position X="5.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAABAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>VideoControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.MediaData.AudioItem" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaData\AudioItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.MediaData.Marker" Collapsed="true">
+    <Position X="8" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>MediaData\Marker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.MediaData.MediaCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAABAAAAgAAAAAAAAgAAAAAAAAQAAACAgAAA=</HashCode>
+      <FileName>MediaData\MediaCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MultiMediaPlayer.MediaData.MediaItem" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAiACIIARAAgABAABQAQgAAIAJIAGAAAEAgA=</HashCode>
+      <FileName>MediaData\MediaItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.MediaData.Meta" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaData\Meta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.MediaData.PictureItem" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaData\PictureItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.MediaData.Tracking" Collapsed="true">
+    <Position X="8" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAEAAAAAAAAAAAIAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>MediaData\Tracking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.MediaData.TrackingItem" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAEAAAEBAAAEEAAAAAAEAAAAACAAAAAAAAAAAACA=</HashCode>
+      <FileName>MediaData\TrackingItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.MediaData.VideoItem" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaData\VideoItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.Views.ErrorPlayer" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAACAAAAAA=</HashCode>
+      <FileName>Views\ErrorPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.Views.MultiPlayer" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MultiPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.Views.SinglePlayer" Collapsed="true">
+    <Position X="3" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\SinglePlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMediaPlayer.Views.ViewPlayer">
+    <Position X="1.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAQIAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Views\ViewPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MultiMediaPlayer.Iconstate" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAEAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MultiMediaPlayer.MediaData.MediaType" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgBAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAABg=</HashCode>
+      <FileName>MediaData\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MultiMediaPlayer.MediaData.ContentType" Collapsed="true">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>MediaData\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="MultiMediaPlayer.AppData.ApplikationKeyEventHandler" Collapsed="true">
+    <Position X="8" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppData\ApplikationKey.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MultiMediaPlayer.MediaData.TrackingItemEventHandler" Collapsed="true">
+    <Position X="9.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaData\TrackingItem.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

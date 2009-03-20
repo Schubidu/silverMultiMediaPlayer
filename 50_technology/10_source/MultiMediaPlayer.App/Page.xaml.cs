@@ -17,44 +17,13 @@ namespace MultiMediaPlayer.App
 		public Page()
 		{
 			InitializeComponent();
-			//SGauge.PercentChanged += new PercentageChangedEventArgs.GaugePercentageChangedEventHandler(SGauge_PercentChanged);
-			//Submit.Click += new RoutedEventHandler(Submit_Click);
-			//State1.Click += new RoutedEventHandler(State1_Click);
-			//State2.Click += new RoutedEventHandler(State2_Click);
-			//State3.Click += new RoutedEventHandler(State3_Click);
 		}
 
-		//void State3_Click(object sender, RoutedEventArgs e)
-		//{
-		//    ButIcon.State = Iconstate.FirstState;
-		//}
-
-		//void State2_Click(object sender, RoutedEventArgs e)
-		//{
-		//    ButIcon.State = Iconstate.SecondState;
-		//}
-
-		//void State1_Click(object sender, RoutedEventArgs e)
-		//{
-		//    ButIcon.State = Iconstate.ThirdState;
-		//}
-
-		//void Submit_Click(object sender, RoutedEventArgs e)
-		//{
-		//    Gauge.Percentage += 0.05;
-		//    SGauge.Percentage += 0.05;
-		//    Gauge_Copy.Percentage += 0.05;
-		//    SGauge_Copy.Percentage += 0.05;
-		//}
-
-		void SGauge_PercentChanged(object sender, PercentageChangedEventArgs.GaugePercentageChangedEventArgs e)
+		private void btn_Click(object sender, RoutedEventArgs e)
 		{
-		//	MessageBox.Show(e.Percentage.ToString());
-		}
-
-		private void SliderGauge_PercentChanged(object sender, PercentageChangedEventArgs.GaugePercentageChangedEventArgs e)
-		{
-			//Gauge.Percentage = (e.Percentage < Gauge.DownloadPercentage) ? e.Percentage : Gauge.DownloadPercentage;
+			Button b = sender as Button;
+			MyPlayer.IsSinglePlayer = !MyPlayer.IsSinglePlayer;
+			b.Content = (MyPlayer.IsSinglePlayer) ? "Switch To MultiPlayer" : "Switch To SinglePlayer";
 		}
 	}
 }

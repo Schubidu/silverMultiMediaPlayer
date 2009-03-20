@@ -15,6 +15,7 @@ namespace MultiMediaPlayer
 	{
 		public VideoControl() {
 			ItemType = MediaData.MediaType.Video;
+			DefaultStyleKey = typeof(VideoControl);
 		}
 
 		public override void SetData(Object obj)

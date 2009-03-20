@@ -243,7 +243,7 @@ namespace MultiMediaPlayer
 		}
 		public static readonly DependencyProperty UseDurationProperty =
 			DependencyProperty.Register("UseDuration", typeof(bool), typeof(MediaControl),
-			  new PropertyMetadata(true);
+			  new PropertyMetadata(true));
 
 		#endregion
 
