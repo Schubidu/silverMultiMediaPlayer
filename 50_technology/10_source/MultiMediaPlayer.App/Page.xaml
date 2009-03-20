@@ -4,6 +4,6 @@
 	xmlns:mmp="clr-namespace:MultiMediaPlayer;assembly=MultiMediaPlayer"
     xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
 	<Grid x:Name="LayoutRoot" Background="White">
-		<mmp:TestPanel />
+		<mmp:Player IsSinglePlayer="True" PlayerKey="12345" MediaXmlUri="http://localhost:62464/media.xml" />
 	</Grid>
 </UserControl>
