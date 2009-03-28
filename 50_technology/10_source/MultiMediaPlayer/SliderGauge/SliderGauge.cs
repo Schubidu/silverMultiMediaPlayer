@@ -183,6 +183,23 @@ namespace MultiMediaPlayer
 			}
 		}
 
+		private void calcPercentage()
+		{
+			if (Duration < FullDuration)
+			{
+				double percentage = Double.Parse(Duration.Ticks.ToString()) / Double.Parse(FullDuration.Ticks.ToString());
+				Percentage = percentage;
+
+			}
+		}
+
+		private void calcDuration()
+		{
+			TimeSpan d = TimeSpan.FromTicks(long.Parse((FullDuration.Ticks * Percentage).ToString()));
+			if (d != Duration)
+				Duration = d;
+		}
+
 		protected virtual double ValidatePercentage(double percentage)
 		{
 			return percentage;
@@ -218,11 +235,11 @@ namespace MultiMediaPlayer
 				if (g.m_percentageTextBlock != null)
 					g.m_percentageTextBlock.Text = g.Percentage.ToString("p0");
 				g.UpdateVisuals();
+				g.calcDuration();
 			}
 		}
 		#endregion
-
-
+		
 		#region Orientation Dependency Property
 
 		/// <summary>
@@ -324,5 +341,53 @@ namespace MultiMediaPlayer
 
 
 		#endregion
+
+
+		#region FullDuration (DependencyProperty)
+
+		/// <summary>
+		/// A description of the property.
+		/// </summary>
+		public TimeSpan FullDuration
+		{
+			get { return (TimeSpan)GetValue(FullDurationProperty); }
+			set { SetValue(FullDurationProperty, value); }
+		}
+		public static readonly DependencyProperty FullDurationProperty =
+			DependencyProperty.Register("FullDuration", typeof(TimeSpan), typeof(SliderGauge),
+			  new PropertyMetadata(TimeSpan.Zero, new PropertyChangedCallback(FullDurationChanged)));
+
+		private static void FullDurationChanged(DependencyObject dp, DependencyPropertyChangedEventArgs e)
+		{
+			SliderGauge p = dp as SliderGauge;
+			p.calcPercentage();
+		}
+
+		#endregion
+
+
+		#region Duration (DependencyProperty)
+
+		/// <summary>
+		/// A description of the property.
+		/// </summary>
+		public TimeSpan Duration
+		{
+			get { return (TimeSpan)GetValue(DurationProperty); }
+			set { SetValue(DurationProperty, value); }
+		}
+		public static readonly DependencyProperty DurationProperty =
+			DependencyProperty.Register("Duration", typeof(TimeSpan), typeof(SliderGauge),
+			  new PropertyMetadata(TimeSpan.Zero, new PropertyChangedCallback(DurationChanged)));
+
+		private static void DurationChanged(DependencyObject dp, DependencyPropertyChangedEventArgs e)
+		{
+			SliderGauge p = dp as SliderGauge;
+			p.calcPercentage();
+		}
+
+		#endregion
+
+
 	}
 }

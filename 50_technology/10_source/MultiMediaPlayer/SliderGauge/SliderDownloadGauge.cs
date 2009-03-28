@@ -95,6 +95,23 @@ namespace MultiMediaPlayer
 		#endregion
 
 
+		#region Downloadground (DependencyProperty)
+
+		/// <summary>
+		/// Color of Download
+		/// </summary>
+		public Brush Downloadground
+		{
+			get { return (Brush)GetValue(DownloadgroundProperty); }
+			set { SetValue(DownloadgroundProperty, value); }
+		}
+		public static readonly DependencyProperty DownloadgroundProperty =
+			DependencyProperty.Register("Downloadground", typeof(Brush), typeof(SliderDownloadGauge),
+			  new PropertyMetadata(null));
+
+		#endregion
+
+
 		#region IsIntermediate (DependencyProperty)
 
 		/// <summary>

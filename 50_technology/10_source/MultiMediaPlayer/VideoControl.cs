@@ -25,6 +25,11 @@ namespace MultiMediaPlayer
 			base.SetData(obj);
 		}
 
+		public override void OnApplyTemplate()
+		{
+			base.OnApplyTemplate();
+		}
+
 		#region MediaUrl (DependencyProperty)
 
 		/// <summary>

@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary 
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-	xmlns:local="clr-namespace:MultiMediaPlayer;assembly=MultiMediaPlayer" 
+	xmlns:local="clr-namespace:MultiMediaPlayer;assembly=MultiMediaPlayer"
+	xmlns:localIcons="clr-namespace:MultiMediaPlayer.Icons;assembly=MultiMediaPlayer"
 	xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
 	<Style TargetType="local:SliderGauge">
 		<Setter Property="FontSize" Value="15" />
@@ -58,16 +59,6 @@
                                    Stretch="Fill" />
 
 						<ContentPresenter x:Name="SliderElement"></ContentPresenter>
-						<!--<Rectangle x:Name="SliderElement"
-								   RadiusX="3"
-								   RadiusY="3"
-								   Fill="Yellow"
-								   Width="10"
-								   Height="10"
-								   VerticalAlignment="Top"
-								   HorizontalAlignment="Left">
-						</Rectangle>-->
-
 						<TextBlock x:Name="PercentageTextBlock" 
                                    Foreground="{TemplateBinding FontColor}" 
                                    Opacity="0" 
@@ -97,6 +88,14 @@
 				<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
 					<GradientStop Offset="0" Color="#FFC0C0C0"/>
 					<GradientStop Offset="1" Color="#FF303030"/>
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Downloadground">
+			<Setter.Value>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+					<GradientStop Color="#FF87C8FF" Offset="0"/>
+					<GradientStop Color="#FF216FA5" Offset="1"/>
 				</LinearGradientBrush>
 			</Setter.Value>
 		</Setter>
@@ -141,14 +140,8 @@
 						<Rectangle x:Name="DownloadElement" 
                                    RadiusX="3" 
                                    RadiusY="3" 
-                                   Stretch="Fill">
-							<Rectangle.Fill>
-								<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-									<GradientStop Color="#FF87C8FF" Offset="0"/>
-									<GradientStop Color="#FF216FA5" Offset="1"/>
-								</LinearGradientBrush>
-							</Rectangle.Fill>
-						</Rectangle>
+                                   Fill="{TemplateBinding Downloadground}" 
+                                   Stretch="Fill"/>
 
 						<Rectangle x:Name="HighlightElement" 
                                    RadiusX="3" 
@@ -177,22 +170,13 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	<Style TargetType="local:ButtonIcon">
+	<Style TargetType="local:Icons.ButtonIcon">
 
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="local:ButtonIcon">
+				<ControlTemplate TargetType="local:Icons.ButtonIcon">
 					<Grid x:Name="RootElement">
 						<vsm:VisualStateManager.VisualStateGroups>
-							<vsm:VisualStateGroup x:Name="CommonStates">
-								<vsm:VisualStateGroup.Transitions>
-									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
-								</vsm:VisualStateGroup.Transitions>
-								<vsm:VisualState x:Name="Normal">
-								</vsm:VisualState>
-								<vsm:VisualState x:Name="MouseDown">
-								</vsm:VisualState>
-							</vsm:VisualStateGroup>
 							<vsm:VisualStateGroup x:Name="IconStates">
 								<vsm:VisualStateGroup.Transitions>
 									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
@@ -296,6 +280,7 @@
 				</LinearGradientBrush>
 			</Setter.Value>
 		</Setter>
+		<Setter Property="Foreground" Value="Green"/>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="local:VideoControl">
@@ -320,37 +305,224 @@
 								<ColumnDefinition Width="25" />
 								<ColumnDefinition Width="25" />
 							</Grid.ColumnDefinitions>
-							<!--<Mediaplayer:ButPlayPauseControl x:Name="ButPlayPause" Margin="0,0,5,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>-->
+							<Button x:Name="ButPlayPause" Margin="0,0,5,0" Grid.Column="0">
+								<localIcons:PlayPause Foreground="{TemplateBinding Foreground}" />
+							</Button>
 							<Button Grid.Column="1" Grid.Row="0" Margin="0,0,5,0" x:Name="ButSkipPrevious">
-								<Path Height="10" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="10" Stretch="Fill" Data="M0,0 L3,0 L3,3.9338851 L7,0 L7,3.9338846 L10.999999,0 L10.999999,10 L7,5.9338856 L7,10 L3,5.9338851 L3,10 L0,10 z"/>
+								<localIcons:SkipPrevious Foreground="{TemplateBinding Foreground}" />
 							</Button>
-							<local:SliderDownloadGauge x:Name="MediaSlider" Margin="0,0,5,0" />
+							<local:SliderDownloadGauge x:Name="MediaSlider" Margin="0,0,5,0" DownloadPercentage="0.8" Grid.Column="2" Duration="0:0:30" FullDuration="0:0:50" />
+							<local:MediaDurationTextBox x:Name="MediaDuration" Grid.Column="3" Margin="0,0,5,0" Duration="0:0:30" FullDuration="0:0:50" />
 							<!--<Mediaplayer:MediaDurationControl Margin="0,0,5,0" Grid.Column="3" x:Name="MediaDuration"/>-->
-							<Button Grid.Column="4" Grid.Row="0" Margin="0,0,5,0" x:Name="ButSkipNext" Style="{StaticResource ButtonStyle1}">
-								<Path Height="10" Fill="{StaticResource ScrollerThumbBrush}" Stretch="Fill" Data="M0,0 L3,0 L3,3.9338851 L7,0 L7,3.9338846 L10.999999,0 L10.999999,10 L7,5.9338856 L7,10 L3,5.9338851 L3,10 L0,10 z" HorizontalAlignment="Center" VerticalAlignment="Center" Width="10" RenderTransformOrigin="0.5,0.5">
-									<Path.RenderTransform>
-										<TransformGroup>
-											<ScaleTransform ScaleX="-1"/>
-											<SkewTransform/>
-											<RotateTransform/>
-											<TranslateTransform/>
-										</TransformGroup>
-									</Path.RenderTransform>
-								</Path>
+							<Button Grid.Column="4" Grid.Row="0" Margin="0,0,5,0" x:Name="ButSkipNext">
+								<localIcons:SkipNext Foreground="{TemplateBinding Foreground}"/>
 							</Button>
-							<Button x:Name="ButFullscreen" Grid.Column="5" Grid.Row="0" Margin="0,0,5,0" HorizontalAlignment="Stretch" Style="{StaticResource ButtonStyle1}">
-								<!--<Mediaplayer:FullscreenVisualControl Height="14" Width="14"/>-->
+							<Button x:Name="ButFullscreen" Grid.Column="5" Grid.Row="0" Margin="0,0,5,0" HorizontalAlignment="Stretch">
+								<localIcons:Fullscreen Foreground="{TemplateBinding Foreground}" />
 							</Button>
-							<Button x:Name="ButMute" Grid.Column="6" Grid.Row="0" Margin="0,0,5,0" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle1}">
-								<!--<Mediaplayer:ButMuteVisualControl x:Name="ButMuteVisual" Height="14" Width="14"/>-->
+							<Button x:Name="ButMute" Grid.Column="6" Grid.Row="0" Margin="0,0,5,0" HorizontalAlignment="Stretch">
+								<localIcons:Mute Foreground="{TemplateBinding Foreground}" />
 							</Button>
-
 						</Grid>
-
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="localIcons:PlayPause">
+		<Setter Property="Foreground" Value="Black" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="localIcons:PlayPause">
+					<Grid x:Name="RootElement">
+						<vsm:VisualStateManager.VisualStateGroups>
+							<vsm:VisualStateGroup x:Name="IconStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="FirstState">
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="FirstStateElement" Storyboard.TargetProperty="Opacity" To="1" />
+										<DoubleAnimation Storyboard.TargetName="SecondStateElement" Storyboard.TargetProperty="Opacity" To="0" />
+										<!--<DoubleAnimation Storyboard.TargetName="ThirdStateElement" Storyboard.TargetProperty="Opacity" To="0" />-->
+									</Storyboard>
+								</vsm:VisualState>
+								<vsm:VisualState x:Name="SecondState">
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="FirstStateElement" Storyboard.TargetProperty="Opacity" To="0" />
+										<DoubleAnimation Storyboard.TargetName="SecondStateElement" Storyboard.TargetProperty="Opacity" To="1" />
+										<!--<DoubleAnimation Storyboard.TargetName="ThirdStateElement" Storyboard.TargetProperty="Opacity" To="0" />-->
+									</Storyboard>
+								</vsm:VisualState>
+								<!--<vsm:VisualState x:Name="ThirdState">
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="FirstStateElement" Storyboard.TargetProperty="Opacity" To="0" />
+										<DoubleAnimation Storyboard.TargetName="SecondStateElement" Storyboard.TargetProperty="Opacity" To="0" />
+										<DoubleAnimation Storyboard.TargetName="ThirdStateElement" Storyboard.TargetProperty="Opacity" To="1" />
+									</Storyboard>
+								</vsm:VisualState>-->
+							</vsm:VisualStateGroup>
+						</vsm:VisualStateManager.VisualStateGroups>
+						<Path x:Name="FirstStateElement" Fill="{TemplateBinding Foreground}" Stretch="Fill" Data="M2.9802322E-07,5.5 L8,5.5 L2.9802322E-07,10 z M0,0 L7.9999995,5 L0,5 z" />
+						<Path x:Name="SecondStateElement" Fill="{TemplateBinding Foreground}" Stretch="Fill" Data="M5.5,0 L8,0 L8,10 L5.5,10 z M0,0 L3,0 L3,10 L0,10 z"/>
 
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
 	</Style>
+	<Style TargetType="localIcons:SkipPrevious">
+		<Setter Property="Foreground" Value="Black" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="localIcons:SkipPrevious">
+					<Grid x:Name="RootElement">
+						<vsm:VisualStateManager.VisualStateGroups>
+							<vsm:VisualStateGroup x:Name="IconStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="FirstState">
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+						</vsm:VisualStateManager.VisualStateGroups>
+						<Path x:Name="FirstStateElement" Fill="{TemplateBinding Foreground}" Stretch="Fill" Data="M0,0 L3,0 L3,3.9338851 L7,0 L7,3.9338846 L10.999999,0 L10.999999,10 L7,5.9338856 L7,10 L3,5.9338851 L3,10 L0,10 z"/>
+
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="localIcons:SkipNext">
+		<Setter Property="Foreground" Value="Black" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="localIcons:SkipNext">
+					<Grid x:Name="RootElement">
+						<vsm:VisualStateManager.VisualStateGroups>
+							<vsm:VisualStateGroup x:Name="IconStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="FirstState">
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+						</vsm:VisualStateManager.VisualStateGroups>
+						<Path x:Name="FirstStateElement" Fill="{TemplateBinding Foreground}" Stretch="Fill" Data="M0,0 L3,0 L3,3.9338851 L7,0 L7,3.9338846 L10.999999,0 L10.999999,10 L7,5.9338856 L7,10 L3,5.9338851 L3,10 L0,10 z" RenderTransformOrigin="0.5,0.5">
+							<Path.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform ScaleX="-1"/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Path.RenderTransform>
+						</Path>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="localIcons:Fullscreen">
+		<Setter Property="Foreground" Value="Black" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="localIcons:Fullscreen">
+					<Grid x:Name="RootElement">
+						<vsm:VisualStateManager.VisualStateGroups>
+							<vsm:VisualStateGroup x:Name="IconStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="0:0:0.3" />
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="FirstState"/>
+								<vsm:VisualState x:Name="SecondState">
+									<Storyboard>
+										<Storyboard>
+											<PointAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="FirstStateElement" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)">
+												<SplinePointKeyFrame KeyTime="00:00:00" Value="0.5,0.5"/>
+											</PointAnimationUsingKeyFrames>
+											<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="FirstStateElement" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+												<SplineDoubleKeyFrame KeyTime="00:00:00" Value="-1"/>
+											</DoubleAnimationUsingKeyFrames>
+											<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="FirstStateElement" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+												<SplineDoubleKeyFrame KeyTime="00:00:00" Value="-1"/>
+											</DoubleAnimationUsingKeyFrames>
+										</Storyboard>
+									</Storyboard>
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+						</vsm:VisualStateManager.VisualStateGroups>
+						<Path x:Name="FirstStateElement" Fill="{TemplateBinding Foreground}" Stretch="Fill" Data="M8,1.9999992 L15,1.9999992 L15,8.999999 z M1,0.99999893 L1,13.999999 L16,13.999999 L16,0.99999893 z M0,0 L17,0 L17,15 L0,15 z">
+							<Path.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Path.RenderTransform>
+						</Path>
+
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="localIcons:Mute">
+		<Setter Property="Foreground" Value="Black" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="localIcons:Mute">
+					<Grid x:Name="RootElement">
+						<vsm:VisualStateManager.VisualStateGroups>
+							<vsm:VisualStateGroup x:Name="IconStates">
+								<vsm:VisualStateGroup.Transitions>
+									<vsm:VisualTransition GeneratedDuration="00:00:00.2"/>
+									<vsm:VisualTransition From="SecondState" GeneratedDuration="00:00:00.2"/>
+									<vsm:VisualTransition From="FirstState" GeneratedDuration="00:00:00.2"/>
+								</vsm:VisualStateGroup.Transitions>
+								<vsm:VisualState x:Name="FirstState">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+											<SplineDoubleKeyFrame KeyTime="00:00:00.2" Value="1"/>
+										</DoubleAnimationUsingKeyFrames>
+										<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+											<SplineDoubleKeyFrame KeyTime="00:00:00.2" Value="1"/>
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</vsm:VisualState>
+								<vsm:VisualState x:Name="SecondState">
+									<Storyboard>
+										<Storyboard>
+											<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+												<SplineDoubleKeyFrame KeyTime="00:00:00.2" Value="0"/>
+											</DoubleAnimationUsingKeyFrames>
+											<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+												<SplineDoubleKeyFrame KeyTime="00:00:00.2" Value="0"/>
+											</DoubleAnimationUsingKeyFrames>
+										</Storyboard>
+									</Storyboard>
+								</vsm:VisualState>
+							</vsm:VisualStateGroup>
+						</vsm:VisualStateManager.VisualStateGroups>
+						<Rectangle Height="4" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="2" Fill="{TemplateBinding Foreground}" StrokeThickness="0"/>
+						<Path Height="12" HorizontalAlignment="Left" Margin="3,0,0,0" VerticalAlignment="Center" Width="4" Data="M-1.3934029E-12,3.9097226 L4,0 L4,14 L1.2797963E-12,10.041666 z" Fill="{TemplateBinding Foreground}" Stretch="Fill"/>
+						<Grid Margin="7.72,0.998,0.28,1" x:Name="grid" RenderTransformOrigin="0,0.5">
+							<Grid.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Grid.RenderTransform>
+							<Path Margin="-0.002,2.3,2.955,1.652" Data="M-4.3985,-1.2471583 C-0.77890307,2.1905723 -2.2701776,7.2325706 -4.2145758,9.4892883" Stretch="Fill" Stroke="{TemplateBinding Foreground}" StrokeThickness="1"/>
+							<Path Margin="1.219,0,0.625,0" Data="M-4.3960438,-0.5002256 C0.45098233,4.0183482 -0.50338078,7.0711293 -4.316247,10.609769" Stretch="Fill" Stroke="{TemplateBinding Foreground}" StrokeThickness="1"/>
+						</Grid>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
 </ResourceDictionary>

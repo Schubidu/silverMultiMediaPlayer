@@ -3,6 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:mmp="clr-namespace:MultiMediaPlayer;assembly=MultiMediaPlayer"
     xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
+	<UserControl.Resources>
+		<ControlTemplate x:Key="PlayerControlTemplate1" TargetType="mmp:Player"/>
+	</UserControl.Resources>
 	<Grid x:Name="LayoutRoot" Background="White">
 		<mmp:Player x:Name="MyPlayer" IsSinglePlayer="True" MediaXmlUri="http://localhost:62464/media.xml" />
 		<StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">

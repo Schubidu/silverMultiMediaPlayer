@@ -18,6 +18,12 @@ namespace MultiMediaPlayer
 
 		}
 
+		public override void OnApplyTemplate()
+		{
+			
+			base.OnApplyTemplate();
+		}
+
 		public virtual void SetData(Object obj)
 		{
 			MediaData.MediaItem item = obj as MediaData.MediaItem; 

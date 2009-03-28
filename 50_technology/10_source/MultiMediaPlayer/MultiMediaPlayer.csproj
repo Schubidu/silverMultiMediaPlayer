@@ -53,8 +53,13 @@
   <ItemGroup>
     <Compile Include="AppData\ApplikationKey.cs" />
     <Compile Include="AppData\ApplikationKeyEventArgs.cs" />
-    <Compile Include="ButtonIcon.cs" />
+    <Compile Include="Icons\ButtonIcon.cs" />
     <Compile Include="enums.cs" />
+    <Compile Include="Icons\Mute.cs" />
+    <Compile Include="Icons\Fullscreen.cs" />
+    <Compile Include="Icons\SkipNext.cs" />
+    <Compile Include="Icons\SkipPrevious.cs" />
+    <Compile Include="Icons\PlayPause.cs" />
     <Compile Include="MediaControl.cs" />
     <Compile Include="MediaData\AudioItem.cs" />
     <Compile Include="MediaData\Enums.cs" />
@@ -66,7 +71,7 @@
     <Compile Include="MediaData\Tracking.cs" />
     <Compile Include="MediaData\TrackingItem.cs" />
     <Compile Include="MediaData\VideoItem.cs" />
-    <Compile Include="PanelButton.cs" />
+    <Compile Include="MediaDurationTextBlock.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Views\ErrorPlayer.cs" />
     <Compile Include="Views\MultiPlayer.cs" />
